@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Academic - Saint Claret School</title>
+    <meta name="description"
+        content="Saint Claret Hr Secondary School, Nongmensong, Shillong — Academic programs and educational framework." />
+    <meta name="keywords" content="Saint Claret School, Shillong, Nongmensong, Academic, MBOSE, HSSLC, Education" />
+    <meta name="author" content="Saint Claret School" />
+    <meta name="theme-color" content="#0B1D3A" />
+    <link rel="canonical" href="https://www.stclaretshillong.in/" />
+    <link rel="icon" type="image/png" href="assets/saint_claret_school_logo.webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --navy: #0D1B5E;
+            --navy-2: #091245;
+            --blue-accent: #2E45A8;
+            --gold: #C8971A;
+            --gold-light: #F0BE4B;
+            --gray: #6B7280;
+            --gray-light: #D1D5DB;
+            --gray-pale: #F3F5F9;
+            --white: #FFFFFF;
+            --snow: #F8F9FB;
+            --ink: #0D1B5E;
+            --muted: #5B6E82;
+            --line: #E5E7EB;
+            --r: 12px;
+            --purple: #0D1B5E;
+            --purple-soft: #7C8EC8;
+            --section-spacing: 80px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--white);
+            color: var(--ink);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(48px, 5.5vw, 56px);
+            font-weight: 700;
+            line-height: 1.08;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 3.5vw, 42px);
+            font-weight: 700;
+            line-height: 1.15;
+        }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 3vw, 32px);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(24px, 2.5vw, 26px);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #424242;
+        }
+
+        .section-label {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 22px;
+            height: 1.5px;
+            background: var(--navy);
+        }
+
+        /* NAV */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 clamp(20px, 5vw, 64px);
+            background: rgba(9, 18, 69, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .nav.shrink {
+            height: 60px;
+            background: rgba(9, 18, 69, 0.97);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .nav-pill {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-pill-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            line-height: 1.2;
+        }
+
+        .nav-title small {
+            display: block;
+            font-size: 13px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            transition: color .25s;
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--gold-light);
+            transition: width 0.28s ease;
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: #fff;
+        }
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+        }
+
+        .burger span {
+            display: block;
+            width: 24px;
+            height: 2.5px;
+            background: white;
+            border-radius: 2px;
+            transition: .3s;
+        }
+
+        /* DRAWER */
+        .drawer {
+            position: fixed;
+            inset: 0;
+            z-index: 190;
+            background: var(--navy);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            transform: translateX(100%);
+            transition: transform .35s cubic-bezier(.77, 0, .175, 1);
+        }
+
+        .drawer.open {
+            transform: translateX(0);
+        }
+
+        .drawer a {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 7vw, 42px);
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+            width: 80vw;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            transition: color .2s;
+        }
+
+        .drawer a:hover {
+            color: var(--purple-soft);
+        }
+
+        .drawer a:last-child {
+            border-bottom: none;
+        }
+
+        /* ACADEMIC HERO */
+        .academic-hero {
+            min-height: 50vh;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px clamp(20px, 5vw, 64px) 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .academic-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(57, 73, 171, 0.15) 0%, transparent 60%);
+            z-index: 1;
+        }
+
+        .academic-hero h1 {
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .academic-hero p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 16px auto 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-geo {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(189, 189, 189, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(189, 189, 189, 0.1) 1px, transparent 1px);
+            background-size: 48px 48px;
+            z-index: 0;
+        }
+
+        .academic-hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(57, 73, 171, 0.2);
+            border: 1px solid rgba(57, 73, 171, 0.45);
+            border-radius: 100px;
+            padding: 6px 16px;
+            margin-bottom: 20px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .academic-hero-tag span {
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.55);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* SECTIONS */
+        .acad-section {
+            padding: clamp(80px, 8vw, 100px) clamp(20px, 5vw, 64px);
+        }
+
+        .acad-section.alt {
+            background: var(--gray-pale);
+        }
+
+        .acad-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* FRAMEWORK GRID */
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .fw-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid var(--line);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .fw-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--blue-accent);
+        }
+
+        .fw-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--blue-accent), var(--navy));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .fw-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .fw-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .fw-card p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* NOTIFICATIONS LIST */
+        .notif-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .notif-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            background: white;
+            border-radius: 14px;
+            padding: 24px 28px;
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--blue-accent);
+            transition: transform 0.2s;
+        }
+
+        .notif-item:hover {
+            transform: translateX(6px);
+        }
+
+        .notif-date {
+            flex-shrink: 0;
+            background: var(--navy);
+            color: white;
+            padding: 8px 14px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 72px;
+        }
+
+        .notif-date .day {
+            font-size: 20px;
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+        }
+
+        .notif-date .mon {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .notif-body h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .notif-body p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .notif-link {
+            color: var(--blue-accent);
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 6px;
+        }
+
+        .notif-link:hover {
+            text-decoration: underline;
+        }
+
+        /* STUDENTS CORNER CTA */
+        .students-cta {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 48px 40px;
+            border: 2px dashed var(--blue-accent);
+        }
+
+        .students-cta h2 {
+            margin-bottom: 12px;
+        }
+
+        .students-cta p {
+            font-size: 17px;
+            color: #555;
+            margin-bottom: 32px;
+        }
+
+        .btn-lg {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all .25s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-cta {
+            background: linear-gradient(135deg, var(--blue-accent), var(--navy));
+            color: white;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(46, 69, 168, 0.35);
+        }
+
+        .btn-cta svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2.5;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--navy);
+            padding: 48px clamp(20px, 5vw, 64px) 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 24px;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+        }
+
+        .footer-col p {
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 14px;
+        }
+
+        .footer-pill {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-pill-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        footer nav a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color .2s;
+        }
+
+        footer nav a:hover {
+            color: white;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        /* SCROLL REVEAL */
+        .sr {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+
+        .sr.d1 {
+            transition-delay: .1s;
+        }
+
+        .sr.d2 {
+            transition-delay: .2s;
+        }
+
+        .sr.d3 {
+            transition-delay: .3s;
+        }
+
+        .sr.vis {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .burger {
+                display: flex;
+            }
+
+            .notif-item {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .notif-date {
+                display: flex;
+                gap: 6px;
+                align-items: center;
+                min-width: auto;
+                padding: 6px 14px;
+            }
+
+            .notif-date .day {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .framework-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 540px) {
+            body {
+                font-size: 16px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .students-cta {
+                padding: 32px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="nav" id="mainNav">
+        <a class="nav-left" href="index.html">
+            <div class="nav-pill"><img src="assets/saint_claret_school_logo.webp" alt="Saint Claret School Crest"
+                    class="nav-pill-img" /></div>
+            <div class="nav-title">Saint Claret School <small>Nongmensong · Shillong</small></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">About Us</a></li>
+            <li><a href="academic.html" class="active">Academic</a></li>
+            <li><a href="index.html#notices">Notices</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+        </ul>
+        <button class="burger" id="burgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </header>
+
+    <main>
+
+        <!-- DRAWER -->
+        <div class="drawer" id="drawer">
+            <a href="index.html">About Us</a>
+            <a href="academic.html">Academic</a>
+            <a href="index.html#notices" onclick="closeDrawer()">Notices</a>
+            <a href="index.html#gallery" onclick="closeDrawer()">Gallery</a>
+            <a href="index.html#contact" onclick="closeDrawer()">Contact Us</a>
+        </div>
+
+        <!-- HERO -->
+        <section class="academic-hero">
+            <div class="hero-geo"></div>
+            <div style="position:relative; z-index:2;">
+                <div class="academic-hero-tag"><span>MBOSE Affiliated · Est. 2005</span></div>
+                <h1>Academic <em style="font-style:italic; color:var(--gold-light);">Excellence</em></h1>
+                <p>Saint Claret School offers a rigorous, holistic, and value-based education from Nursery to Class XII
+                    under the Meghalaya Board of School Education.</p>
+            </div>
+        </section>
+
+        <!-- EDUCATIONAL FRAMEWORK -->
+        <section class="acad-section" id="framework">
+            <div class="acad-inner">
+                <div class="section-label sr">Our Framework</div>
+                <h2 class="sr d1">Educational <em style="font-style:italic; color:var(--blue-accent);">Framework</em>
+                </h2>
+                <p class="sr d2" style="max-width:700px; margin-top:12px;">Fully affiliated with the Meghalaya Board of
+                    School Education (MBOSE), our academic structure is designed to nurture intellectual curiosity,
+                    critical thinking, and character formation.</p>
+
+                <div class="framework-grid sr d3">
+                    <div class="fw-card">
+                        <div class="fw-icon"><svg viewBox="0 0 24 24">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                            </svg></div>
+                        <h4>MBOSE Curriculum</h4>
+                        <p>Our curriculum follows the Meghalaya Board of School Education standards from Nursery through
+                            Class XII, ensuring academic rigor and board readiness at every stage.</p>
+                    </div>
+                    <div class="fw-card">
+                        <div class="fw-icon"><svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="8" r="4" />
+                                <path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+                            </svg></div>
+                        <h4>Teaching Methodology</h4>
+                        <p>We employ a blend of traditional instruction, multimedia smart classrooms, and experiential
+                            learning to foster deep understanding and student engagement.</p>
+                    </div>
+                    <div class="fw-card">
+                        <div class="fw-icon"><svg viewBox="0 0 24 24">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                <polyline points="9 22 9 12 15 12 15 22" />
+                            </svg></div>
+                        <h4>Grade Levels</h4>
+                        <p>We offer classes from Nursery through Class XII (HSSLC Arts stream). Our vertical progression
+                            ensures a seamless academic journey for every student.</p>
+                    </div>
+                    <div class="fw-card">
+                        <div class="fw-icon"><svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg></div>
+                        <h4>Subjects & Streams</h4>
+                        <p>At the HSSLC level, we offer a specialized Arts stream with History, Political Science,
+                            Education, Sociology, Economics, and Computer Science.</p>
+                    </div>
+                    <div class="fw-card">
+                        <div class="fw-icon"><svg viewBox="0 0 24 24">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg></div>
+                        <h4>Assessment System</h4>
+                        <p>Continuous and comprehensive evaluation through periodic tests, term examinations, projects,
+                            and co-curricular participation ensures all-round student development.</p>
+                    </div>
+                    <div class="fw-card">
+                        <div class="fw-icon"><svg viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg></div>
+                        <h4>Academic Calendar</h4>
+                        <p>The academic year runs from February to December, divided into two terms. Key milestones
+                            include mid-term exams, board preparations, and annual assessments.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LATEST NOTIFICATIONS -->
+        <section class="acad-section alt" id="notifications">
+            <div class="acad-inner">
+                <div class="section-label sr">Updates</div>
+                <h2 class="sr d1">Latest <em style="font-style:italic; color:var(--blue-accent);">Notifications</em>
+                </h2>
+                <p class="sr d2" style="max-width:600px; margin-top:12px;">Stay informed with the latest announcements,
+                    exam schedules, and important circulars.</p>
+
+                <div class="notif-list">
+                    <div class="notif-item sr d2">
+                        <div class="notif-date"><span class="day">15</span><span class="mon">Jun</span></div>
+                        <div class="notif-body">
+                            <h4>Term II Exam Schedule Released</h4>
+                            <p>The timetable for Term II examinations (Classes I–XII) has been published. Students are
+                                requested to collect their schedule from the academic office.</p>
+                            <a href="#" class="notif-link">View Schedule &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="notif-item sr d2">
+                        <div class="notif-date"><span class="day">28</span><span class="mon">May</span></div>
+                        <div class="notif-body">
+                            <h4>Summer Vacation Announcement</h4>
+                            <p>Summer break will commence from June 1 to June 30, 2025. School reopens on July 1.
+                                Holiday homework has been assigned for all grades.</p>
+                            <a href="#" class="notif-link">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="notif-item sr d3">
+                        <div class="notif-date"><span class="day">10</span><span class="mon">May</span></div>
+                        <div class="notif-body">
+                            <h4>Parent-Teacher Meeting Notice</h4>
+                            <p>Mandatory PTM for all classes on May 20, 2025 at 9:00 AM. Academic progress reports will
+                                be distributed. Attendance is compulsory.</p>
+                            <a href="#" class="notif-link">Details &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="notif-item sr d3">
+                        <div class="notif-date"><span class="day">25</span><span class="mon">Apr</span></div>
+                        <div class="notif-body">
+                            <h4>Science Exhibition Winners</h4>
+                            <p>Our students secured 1st prize at William Carey University's inter-school science
+                                exhibition. Congratulations to all participants and coordinators!</p>
+                            <a href="#" class="notif-link">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="notif-item sr d3">
+                        <div class="notif-date"><span class="day">01</span><span class="mon">Apr</span></div>
+                        <div class="notif-body">
+                            <h4>New Academic Session Begins</h4>
+                            <p>The 2025–2026 academic session starts on April 7. Orientation for new students will be
+                                held on April 5. Uniform and textbook distribution begins this week.</p>
+                            <a href="#" class="notif-link">Learn More &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="notif-item sr d3">
+                        <div class="notif-date"><span class="day">15</span><span class="mon">Mar</span></div>
+                        <div class="notif-body">
+                            <h4>Annual Day Celebration Scheduled</h4>
+                            <p>Save the date! Our Annual Day celebration will be held on March 28, 2025. Theme and
+                                program schedule will be shared soon. Parents are cordially invited.</p>
+                            <a href="#" class="notif-link">Read More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STUDENTS CORNER -->
+        <section class="acad-section" id="students-corner">
+            <div class="acad-inner">
+                <div class="students-cta sr">
+                    <h2 class="sr d1">Students <em style="font-style:italic; color:var(--blue-accent);">Corner</em></h2>
+                    <p class="sr d2">Access study materials, exam schedules, downloadable forms, assignment details, and
+                        more — all in one dedicated space for Claretines.</p>
+                    <a href="students-corner.html" class="btn-lg btn-cta sr d3">
+                        Visit Students Corner
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div style="max-width:1400px; margin:0 auto; width:100%;">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-pill" style="margin-bottom:20px"><img src="assets/saint_claret_school_logo.webp"
+                            alt="Saint Claret School Logo" class="footer-pill-img" /></div>
+                    <h4 style="color:white; font-family:'Playfair Display', serif; font-size:22px; margin-bottom:12px;">
+                        Saint Claret School</h4>
+                    <p style="font-size:16px; line-height:1.8;">A Claretian institution dedicated to holistic education
+                        and excellence in the heart of Shillong since 2005.</p>
+                    <p style="font-size:14px; color:rgba(255,255,255,0.4); margin-top:12px;">Umkdait, Nongmensong,
+                        Shillong - 793019<br />Meghalaya, India</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <nav style="display:flex; flex-direction:column; gap:14px;">
+                        <a href="index.html">About Us</a>
+                        <a href="academic.html">Academics</a>
+                        <a href="index.html#notices">Notices</a>
+                        <a href="index.html#gallery">Photo Gallery</a>
+                        <a href="index.html#contact">Contact Us</a>
+                    </nav>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links" style="display:flex; gap:16px;">
+                        <a href="https://facebook.com/search/top/?q=Saint%20Claret%20School%20Nongmensong"
+                            target="_blank" aria-label="Facebook"
+                            style="width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; transition:background 0.3s;">
+                            <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:white;">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram"
+                            style="width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; transition:background 0.3s;">
+                            <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:white;">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="YouTube"
+                            style="width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; transition:background 0.3s;">
+                            <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:white;">
+                                <path
+                                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.46 5.58a2.78 2.78 0 0 0 1.94 2c1.71.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.89 23 12 23 12s0-3.89-.46-5.58z" />
+                                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Saint Claret School, Shillong. Designed for Saint Claret School.</p>
+                <div style="display:flex; gap:20px;">
+                    <a href="#" style="color:inherit; text-decoration:none; font-size:14px;">Privacy Policy</a>
+                    <a href="#" style="color:inherit; text-decoration:none; font-size:14px;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mainNav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => { mainNav.classList.toggle('shrink', window.scrollY > 50); });
+        const burgerBtn = document.getElementById('burgerBtn');
+        const drawer = document.getElementById('drawer');
+        burgerBtn.addEventListener('click', () => drawer.classList.toggle('open'));
+        function closeDrawer() { drawer.classList.remove('open'); }
+        const srEls = document.querySelectorAll('.sr');
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        srEls.forEach(el => io.observe(el));
+    </script>
+</body>
+
+</html>

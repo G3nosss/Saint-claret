@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Students Corner - Saint Claret School</title>
+    <meta name="description"
+        content="Saint Claret School — Student resources, study materials, exam schedules, and more." />
+    <meta name="theme-color" content="#0B1D3A" />
+    <link rel="icon" type="image/png" href="assets/saint_claret_school_logo.webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --navy: #0D1B5E;
+            --navy-2: #091245;
+            --blue-accent: #2E45A8;
+            --gold: #C8971A;
+            --gold-light: #F0BE4B;
+            --gray: #6B7280;
+            --gray-light: #D1D5DB;
+            --gray-pale: #F3F5F9;
+            --white: #FFFFFF;
+            --snow: #F8F9FB;
+            --ink: #0D1B5E;
+            --muted: #5B6E82;
+            --line: #E5E7EB;
+            --r: 12px;
+            --purple: #0D1B5E;
+            --purple-soft: #7C8EC8;
+            --section-spacing: 80px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--white);
+            color: var(--ink);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(48px, 5.5vw, 56px);
+            font-weight: 700;
+            line-height: 1.08;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 3.5vw, 42px);
+            font-weight: 700;
+            line-height: 1.15;
+        }
+
+        h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(24px, 2.5vw, 26px);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #424242;
+        }
+
+        .section-label {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 22px;
+            height: 1.5px;
+            background: var(--navy);
+        }
+
+        /* NAV */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 clamp(20px, 5vw, 64px);
+            background: rgba(9, 18, 69, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .nav.shrink {
+            height: 60px;
+            background: rgba(9, 18, 69, 0.97);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .nav-pill {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-pill-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            line-height: 1.2;
+        }
+
+        .nav-title small {
+            display: block;
+            font-size: 13px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            transition: color .25s;
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--gold-light);
+            transition: width 0.28s ease;
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: #fff;
+        }
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+        }
+
+        .burger span {
+            display: block;
+            width: 24px;
+            height: 2.5px;
+            background: white;
+            border-radius: 2px;
+            transition: .3s;
+        }
+
+        /* DRAWER */
+        .drawer {
+            position: fixed;
+            inset: 0;
+            z-index: 190;
+            background: var(--navy);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            transform: translateX(100%);
+            transition: transform .35s cubic-bezier(.77, 0, .175, 1);
+        }
+
+        .drawer.open {
+            transform: translateX(0);
+        }
+
+        .drawer a {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 7vw, 42px);
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+            width: 80vw;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            transition: color .2s;
+        }
+
+        .drawer a:hover {
+            color: var(--purple-soft);
+        }
+
+        .drawer a:last-child {
+            border-bottom: none;
+        }
+
+        /* HERO */
+        .student-hero {
+            min-height: 40vh;
+            background: linear-gradient(135deg, var(--navy), var(--blue-accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px clamp(20px, 5vw, 64px) 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .student-hero h1 {
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .student-hero p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 18px;
+            max-width: 550px;
+            margin: 12px auto 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-geo {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 48px 48px;
+            z-index: 0;
+        }
+
+        .student-hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 100px;
+            padding: 6px 16px;
+            margin-bottom: 16px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .student-hero-tag span {
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* RESOURCES */
+        .res-section {
+            padding: clamp(80px, 8vw, 100px) clamp(20px, 5vw, 64px);
+        }
+
+        .res-section.alt {
+            background: var(--gray-pale);
+        }
+
+        .res-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .res-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid var(--line);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .res-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--blue-accent);
+        }
+
+        .res-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--blue-accent), var(--navy));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .res-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .res-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .res-card p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .res-link {
+            color: var(--blue-accent);
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .res-link:hover {
+            text-decoration: underline;
+        }
+
+        .res-link svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--navy);
+            padding: 48px clamp(20px, 5vw, 64px) 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 24px;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+        }
+
+        .footer-col p {
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 14px;
+        }
+
+        .footer-pill {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-pill-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        footer nav a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color .2s;
+        }
+
+        footer nav a:hover {
+            color: white;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        /* SCROLL REVEAL */
+        .sr {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+
+        .sr.d1 {
+            transition-delay: .1s;
+        }
+
+        .sr.d2 {
+            transition-delay: .2s;
+        }
+
+        .sr.d3 {
+            transition-delay: .3s;
+        }
+
+        .sr.vis {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width:1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width:900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .burger {
+                display: flex;
+            }
+        }
+
+        @media (max-width:768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width:540px) {
+            body {
+                font-size: 16px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="nav" id="mainNav">
+        <a class="nav-left" href="index.html">
+            <div class="nav-pill"><img src="assets/saint_claret_school_logo.webp" alt="Saint Claret School Crest"
+                    class="nav-pill-img" /></div>
+            <div class="nav-title">Saint Claret School <small>Nongmensong · Shillong</small></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">About Us</a></li>
+            <li><a href="academic.html">Academic</a></li>
+            <li><a href="index.html#notices">Notices</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+        </ul>
+        <button class="burger" id="burgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </header>
+
+    <main>
+        <!-- DRAWER -->
+        <div class="drawer" id="drawer">
+            <a href="index.html">About Us</a>
+            <a href="academic.html">Academic</a>
+            <a href="index.html#notices" onclick="closeDrawer()">Notices</a>
+            <a href="index.html#gallery" onclick="closeDrawer()">Gallery</a>
+            <a href="index.html#contact" onclick="closeDrawer()">Contact Us</a>
+        </div>
+
+        <!-- HERO -->
+        <section class="student-hero">
+            <div class="hero-geo"></div>
+            <div style="position:relative; z-index:2;">
+                <div class="student-hero-tag"><span>Student Resources</span></div>
+                <h1>Students <em style="font-style:italic; color:var(--gold-light);">Corner</em></h1>
+                <p>Welcome, Claretines! Your one-stop hub for study materials, exam updates, activities, and essential
+                    resources.</p>
+            </div>
+        </section>
+
+        <!-- RESOURCES GRID -->
+        <section class="res-section" id="resources">
+            <div class="res-inner">
+                <div class="section-label sr">What's Inside</div>
+                <h2 class="sr d1">Student <em style="font-style:italic; color:var(--blue-accent);">Resources</em></h2>
+                <p class="sr d2" style="max-width:600px; margin-top:12px;">Everything you need to succeed — from study
+                    guides to activity calendars.</p>
+
+                <div class="resources-grid">
+                    <div class="res-card sr d1">
+                        <div class="res-icon"><svg viewBox="0 0 24 24">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                            </svg></div>
+                        <h4>Study Materials</h4>
+                        <p>Access chapter-wise notes, sample papers, question banks, and revision guides for all
+                            subjects across every grade level.</p>
+                        <a href="#" class="res-link">Browse Materials <svg viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg></a>
+                    </div>
+                    <div class="res-card sr d1">
+                        <div class="res-icon"><svg viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                                <line x1="16" y1="13" x2="8" y2="13" />
+                                <line x1="16" y1="17" x2="8" y2="17" />
+                            </svg></div>
+                        <h4>Homework & Assignments</h4>
+                        <p>Find weekly homework listings, assignment deadlines, project guidelines, and submission
+                            instructions for each class.</p>
+                        <a href="#" class="res-link">View Assignments <svg viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg></a>
+                    </div>
+                    <div class="res-card sr d2">
+                        <div class="res-icon"><svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg></div>
+                        <h4>Exam Schedules</h4>
+                        <p>Stay up-to-date with exam timetables for periodic tests, term exams, and MBOSE board
+                            examinations for Classes X & XII.</p>
+                        <a href="#" class="res-link">See Schedule <svg viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg></a>
+                    </div>
+                    <div class="res-card sr d2">
+                        <div class="res-icon"><svg viewBox="0 0 24 24">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                            </svg></div>
+                        <h4>Results & Performance</h4>
+                        <p>Check your academic performance — term results, grade cards, and progress reports will be
+                            available here.</p>
+                        <a href="#" class="res-link">Check Results <svg viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg></a>
+                    </div>
+                    <div class="res-card sr d3">
+                        <div class="res-icon"><svg viewBox="0 0 24 24">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg></div>
+                        <h4>Student Activities</h4>
+                        <p>Explore the annual calendar of sports events, cultural fiestas, science exhibitions, debates,
+                            and club activities.</p>
+                        <a href="#" class="res-link">Activity Calendar <svg viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg></a>
+                    </div>
+                    <div class="res-card sr d3">
+                        <div class="res-icon"><svg viewBox="0 0 24 24">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <polyline points="7 10 12 15 17 10" />
+                                <line x1="12" y1="15" x2="12" y2="3" />
+                            </svg></div>
+                        <h4>Downloads</h4>
+                        <p>Download admission forms, transfer certificates, fee structures, uniform lists, and other
+                            important documents.</p>
+                        <a href="#" class="res-link">Download Forms <svg viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg></a>
+                    </div>
+                    <div class="res-card sr d3">
+                        <div class="res-icon"><svg viewBox="0 0 24 24">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                            </svg></div>
+                        <h4>Student Handbook</h4>
+                        <p>Your guide to school rules, code of conduct, uniform policy, academic expectations, and the
+                            Claretian ethos.</p>
+                        <a href="#" class="res-link">Read Handbook <svg viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div style="max-width:1400px; margin:0 auto; width:100%;">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-pill" style="margin-bottom:20px"><img src="assets/saint_claret_school_logo.webp"
+                            alt="Saint Claret School Logo" class="footer-pill-img" /></div>
+                    <h4 style="color:white; font-family:'Playfair Display', serif; font-size:22px; margin-bottom:12px;">
+                        Saint Claret School</h4>
+                    <p style="font-size:16px; line-height:1.8;">A Claretian institution dedicated to holistic education
+                        and excellence in the heart of Shillong since 2005.</p>
+                    <p style="font-size:14px; color:rgba(255,255,255,0.4); margin-top:12px;">Umkdait, Nongmensong,
+                        Shillong - 793019<br />Meghalaya, India</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <nav style="display:flex; flex-direction:column; gap:14px;">
+                        <a href="index.html">About Us</a>
+                        <a href="academic.html">Academics</a>
+                        <a href="index.html#notices">Notices</a>
+                        <a href="index.html#gallery">Photo Gallery</a>
+                        <a href="index.html#contact">Contact Us</a>
+                    </nav>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links" style="display:flex; gap:16px;">
+                        <a href="https://facebook.com/search/top/?q=Saint%20Claret%20School%20Nongmensong"
+                            target="_blank" aria-label="Facebook"
+                            style="width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; transition:background 0.3s;"><svg
+                                viewBox="0 0 24 24" style="width:20px;height:20px;fill:white;">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg></a>
+                        <a href="#" aria-label="Instagram"
+                            style="width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; transition:background 0.3s;"><svg
+                                viewBox="0 0 24 24" style="width:20px;height:20px;fill:white;">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                            </svg></a>
+                        <a href="#" aria-label="YouTube"
+                            style="width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; transition:background 0.3s;"><svg
+                                viewBox="0 0 24 24" style="width:20px;height:20px;fill:white;">
+                                <path
+                                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.46 5.58a2.78 2.78 0 0 0 1.94 2c1.71.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.89 23 12 23 12s0-3.89-.46-5.58z" />
+                                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Saint Claret School, Shillong. Designed for Saint Claret School.</p>
+                <div style="display:flex; gap:20px;">
+                    <a href="#" style="color:inherit; text-decoration:none; font-size:14px;">Privacy Policy</a>
+                    <a href="#" style="color:inherit; text-decoration:none; font-size:14px;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mainNav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => { mainNav.classList.toggle('shrink', window.scrollY > 50); });
+        const burgerBtn = document.getElementById('burgerBtn');
+        const drawer = document.getElementById('drawer');
+        burgerBtn.addEventListener('click', () => drawer.classList.toggle('open'));
+        function closeDrawer() { drawer.classList.remove('open'); }
+        const srEls = document.querySelectorAll('.sr');
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        srEls.forEach(el => io.observe(el));
+    </script>
+</body>
+
+</html>
